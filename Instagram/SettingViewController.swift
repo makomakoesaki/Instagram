@@ -23,7 +23,7 @@ class SettingViewController: UIViewController {
                 // 処理を返す
                 return
             }
-            // 表示名を設定する
+            // ログインしているユーザー情報をuserに格納する
             let user = Auth.auth().currentUser
             // userがnilでないなら
             if let user = user {

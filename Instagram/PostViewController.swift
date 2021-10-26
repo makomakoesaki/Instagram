@@ -40,7 +40,7 @@ class PostViewController: UIViewController {
                 SVProgressHUD.showError(withStatus: "画像のアップロードが失敗しました")
                 // 投稿処理をキャンセルし、先頭画面に戻る
                 UIApplication.shared.windows.first{ $0.isKeyWindow }?.rootViewController?.dismiss(animated: true, completion: nil)
-                // 何もしない
+                // 処理を返す
                 return
             }
             // 投稿者名をnameに格納する
@@ -50,7 +50,7 @@ class PostViewController: UIViewController {
             // 指定した場所に投稿者名、投稿の説明文、投稿日時を保存する
             postRef.setData(postDic)
             // HUDで投稿完了を表示する
-            SVProgressHUD.showSuccess(withStatus: "投稿しました")
+            SVProgressHUD.showSuccess(withStatus: "投稿しました。")
             // 投稿処理が完了したので先頭画面に戻る
             UIApplication.shared.windows.first{ $0.isKeyWindow }?.rootViewController?.dismiss(animated: true, completion: nil)
         }

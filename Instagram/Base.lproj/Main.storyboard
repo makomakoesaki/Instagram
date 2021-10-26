@@ -297,49 +297,61 @@
         <!--Comment View Controller-->
         <scene sceneID="v5G-0k-Kq5">
             <objects>
-                <viewController storyboardIdentifier="Comment" id="RFl-4Q-QqE" customClass="CommentViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Comment" modalPresentationStyle="fullScreen" id="RFl-4Q-QqE" customClass="CommentViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9tJ-bG-jMD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rgk-kH-2nS">
-                                <rect key="frame" x="57" y="124" width="300" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="Wt6-d4-DIJ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JPs-uR-Z1r">
-                                <rect key="frame" x="57" y="168" width="300" height="40"/>
+                                <rect key="frame" x="57" y="334" width="300" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="LiL-8s-had"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="jRO-fV-2As"/>
                                 </constraints>
                                 <state key="normal" title="コメントする" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleCommentButton:" destination="RFl-4Q-QqE" eventType="touchUpInside" id="xmU-XK-xIg"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7DD-Mk-HV9">
-                                <rect key="frame" x="57" y="218" width="300" height="40"/>
+                                <rect key="frame" x="57" y="384" width="300" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="Yan-zh-dGQ"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="ZMf-uN-WcK"/>
                                 </constraints>
                                 <state key="normal" title="キャンセル" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleCancelButton:" destination="RFl-4Q-QqE" eventType="touchUpInside" id="wYu-vh-O0o"/>
+                                </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NZj-OS-D41">
+                                <rect key="frame" x="57" y="124" width="300" height="200"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="U5b-jW-a67"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dTw-Ql-Igt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="7DD-Mk-HV9" firstAttribute="top" secondItem="JPs-uR-Z1r" secondAttribute="bottom" constant="10" id="36t-wx-PEc"/>
-                            <constraint firstItem="JPs-uR-Z1r" firstAttribute="top" secondItem="Rgk-kH-2nS" secondAttribute="bottom" constant="10" id="CXb-xr-JEG"/>
-                            <constraint firstItem="Rgk-kH-2nS" firstAttribute="centerX" secondItem="9tJ-bG-jMD" secondAttribute="centerX" id="Hlc-zj-dEM"/>
-                            <constraint firstItem="JPs-uR-Z1r" firstAttribute="centerX" secondItem="9tJ-bG-jMD" secondAttribute="centerX" id="KXG-Uc-3LX"/>
-                            <constraint firstItem="Rgk-kH-2nS" firstAttribute="top" secondItem="dTw-Ql-Igt" secondAttribute="top" constant="80" id="KaN-Bm-bzj"/>
-                            <constraint firstItem="7DD-Mk-HV9" firstAttribute="centerX" secondItem="9tJ-bG-jMD" secondAttribute="centerX" id="cAl-F8-tt5"/>
+                            <constraint firstItem="dTw-Ql-Igt" firstAttribute="bottom" secondItem="7DD-Mk-HV9" secondAttribute="bottom" constant="438" id="JI2-rP-D4n"/>
+                            <constraint firstItem="7DD-Mk-HV9" firstAttribute="top" secondItem="JPs-uR-Z1r" secondAttribute="bottom" constant="10" id="MBH-9N-T3J"/>
+                            <constraint firstItem="JPs-uR-Z1r" firstAttribute="top" secondItem="NZj-OS-D41" secondAttribute="bottom" constant="10" id="Mab-ce-Oo1"/>
+                            <constraint firstItem="JPs-uR-Z1r" firstAttribute="centerX" secondItem="9tJ-bG-jMD" secondAttribute="centerX" id="O2y-Jb-nrt"/>
+                            <constraint firstItem="7DD-Mk-HV9" firstAttribute="centerX" secondItem="9tJ-bG-jMD" secondAttribute="centerX" id="V7N-Cl-c9J"/>
+                            <constraint firstItem="NZj-OS-D41" firstAttribute="top" secondItem="dTw-Ql-Igt" secondAttribute="top" constant="80" id="jFU-kS-AXZ"/>
+                            <constraint firstItem="NZj-OS-D41" firstAttribute="centerX" secondItem="9tJ-bG-jMD" secondAttribute="centerX" id="w1a-gB-Zkn"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="commentTextView" destination="NZj-OS-D41" id="9Kb-ft-quY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z2J-yu-lfA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1659" y="-593"/>
+            <point key="canvasLocation" x="-68" y="803"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Beh-Fm-er7">
@@ -367,6 +379,9 @@
         <image name="camera" width="25" height="25"/>
         <image name="home" width="25" height="25"/>
         <image name="setting" width="25" height="25"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
