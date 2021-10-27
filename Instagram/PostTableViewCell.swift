@@ -31,6 +31,11 @@ class PostTableViewCell: UITableViewCell {
         let imageRef = Storage.storage().reference().child(Const.ImagePath).child(postData.id + ".jpg")
         postImageView.sd_setImage(with: imageRef)
         self.captionLabel.text = "\(postData.name!) : \(postData.caption!)"
+        var commentlabelText = ""
+        for com in postData.comment {
+            commentlabelText += com + "\n"
+        }
+        self.commentLabel.text = commentlabelText
         self.dateLabel.text = ""
         if let date = postData.date {
             let formatter = DateFormatter()

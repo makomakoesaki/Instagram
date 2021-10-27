@@ -11,6 +11,8 @@ import SVProgressHUD
 
 class CommentViewController: UIViewController {
 
+    var postData: PostData!
+    
     @IBOutlet weak var commentTextView: UITextView!
     
     @IBAction func handleCommentButton(_ sender: Any) {
@@ -19,10 +21,15 @@ class CommentViewController: UIViewController {
                 SVProgressHUD.showError(withStatus: "コメントを入力して下さい。")
                 return
             }
-            let commentsRef = Firestore.firestore().collection(Const.PostPath).document()
-            let name = Auth.auth().currentUser?.displayName
-            let postDic = ["name": name!,"comment": self.commentTextView.text!]
-            commentsRef.setData(postDic)
+            if let commenter = Auth.auth().currentUser?.displayName {
+                let string = commenter + " : " + comment
+                let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
+                let updateValue: FieldValue
+                updateValue = FieldValue.arrayUnion([string])
+                postRef.updateData(["comment": updateValue])
+            } else {
+                SVProgressHUD.showError(withStatus: "表示名を登録して下さい。")
+            }
             SVProgressHUD.showSuccess(withStatus: "コメントしました。")
             self.dismiss(animated: true, completion: nil)
         }
@@ -36,7 +43,6 @@ class CommentViewController: UIViewController {
         super.viewDidLoad()
         commentTextView.layer.borderWidth = 1.0
     }
-    
 
     /*
     // MARK: - Navigation

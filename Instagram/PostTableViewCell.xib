@@ -53,16 +53,16 @@
                         <state key="normal" title="コメントする"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="投稿の説明文" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ceP-K9-wxz">
-                        <rect key="frame" x="30" y="590" width="509" height="100"/>
+                        <rect key="frame" x="30" y="590" width="509" height="49"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="100" id="Zoq-1z-lGA"/>
+                            <constraint firstAttribute="height" constant="49" id="Zoq-1z-lGA"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="コメント" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bms-RO-sfH">
-                        <rect key="frame" x="30" y="700" width="509" height="111"/>
+                        <rect key="frame" x="30" y="647" width="509" height="164"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -86,7 +86,7 @@
                     <constraint firstItem="Bms-RO-sfH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="aAG-vT-oF7"/>
                     <constraint firstItem="h5q-LD-yVc" firstAttribute="top" secondItem="VDN-lf-dCU" secondAttribute="bottom" constant="10" id="hfF-WQ-Lvu"/>
                     <constraint firstItem="tIc-WN-jsg" firstAttribute="centerY" secondItem="h5q-LD-yVc" secondAttribute="centerY" id="k7R-6g-HVb"/>
-                    <constraint firstItem="Bms-RO-sfH" firstAttribute="top" secondItem="ceP-K9-wxz" secondAttribute="bottom" constant="10" id="lB4-Ih-4BM"/>
+                    <constraint firstItem="Bms-RO-sfH" firstAttribute="top" secondItem="ceP-K9-wxz" secondAttribute="bottom" constant="8" id="lB4-Ih-4BM"/>
                     <constraint firstItem="gD0-XY-Dpr" firstAttribute="centerY" secondItem="h5q-LD-yVc" secondAttribute="centerY" id="qPE-bQ-zgJ"/>
                 </constraints>
             </tableViewCellContentView>

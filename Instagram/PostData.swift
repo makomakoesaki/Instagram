@@ -4,11 +4,9 @@ import Firebase
 class PostData: NSObject {
     var id: String
     var name: String?
-    var names: [String] = []
     var caption: String?
     var date: Date?
-    var comments: [String] = []
-    var isCommented: Bool = false
+    var comment: [String] = []
     var likes: [String] = []
     var isLiked: Bool = false
 
@@ -19,11 +17,8 @@ class PostData: NSObject {
         self.caption = postDic["caption"] as? String
         let timestamp = postDic["date"] as? Timestamp
         self.date = timestamp?.dateValue()
-        if let comments = postDic["comments"] as? [String] {
-            self.comments = comments
-        }
-        if let names = postDic["names"] as? [String] {
-            self.names = names
+        if let comment = postDic["comment"] as? [String] {
+            self.comment = comment
         }
         if let likes = postDic["likes"] as? [String] {
             self.likes = likes
@@ -31,9 +26,6 @@ class PostData: NSObject {
         if let myid = Auth.auth().currentUser?.uid {
             if self.likes.firstIndex(of: myid) != nil {
                 self.isLiked = true
-            }
-            if self.comments.firstIndex(of: myid) != nil {
-                self.isCommented = true
             }
         }
     }

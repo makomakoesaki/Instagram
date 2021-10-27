@@ -29,6 +29,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let postsRef = Firestore.firestore().collection(Const.PostPath).order(by: "date", descending: true)
             listener = postsRef.addSnapshotListener() { (querySnapshot, error) in
                 if let error = error {
+                    print("DEBUG_PRINT: snapshotの取得が失敗しました。 \(error)")
                     return
                 }
                 self.postArray = querySnapshot!.documents.map { document in
@@ -62,12 +63,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let point = touch!.location(in: self.tableView)
         let indexPath = tableView.indexPathForRow(at: point)
         let postData = postArray[indexPath!.row]
-        let commentViewController = self.storyboard?.instantiateViewController(withIdentifier: "Comment")
-        if let myid = Auth.auth().currentUser?.uid {
-            let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
-            postRef.updateData(["comments": myid, "names": myid])
-        }
-        self.present(commentViewController!, animated: true, completion: nil)
+        let commentViewController = self.storyboard?.instantiateViewController(withIdentifier: "Comment") as! CommentViewController
+        commentViewController.postData = postData
+        self.present(commentViewController, animated: true, completion: nil)
     }
     
     @objc func handleLikeButton(_ sender: UIButton, forEvent event: UIEvent) {
